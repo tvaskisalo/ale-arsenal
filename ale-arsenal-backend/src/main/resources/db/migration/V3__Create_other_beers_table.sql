@@ -1,0 +1,9 @@
+CREATE TABLE other_beers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  brewery VARCHAR NOT NULL,
+  count INT NOT NULL,
+  bottle_size FLOAT NOT NULL,
+  style VARCHAR NOT NULL,
+  abv FLOAT NOT NULL
+)
