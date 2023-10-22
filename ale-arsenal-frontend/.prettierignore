@@ -1,0 +1,8 @@
+.eslintrc.cjs
+/node_modules
+*.json
+README.md
+vite.config.json
+
+build
+coverage
