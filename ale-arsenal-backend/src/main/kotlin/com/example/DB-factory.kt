@@ -7,7 +7,7 @@ fun initDB() {
   val pass = System.getenv("DB_PASSWORD")
   val username = System.getenv("DB_USER")
   Database.connect(
-    "jdbc:postgresql.Driver",
+    "jdbc:postgresql://$uri",
     driver = "org.postgresql.Driver",
     user = username,
     password = pass

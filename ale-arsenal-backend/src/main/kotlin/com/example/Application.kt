@@ -1,6 +1,7 @@
 package com.example
 
 import com.example.plugins.*
+import com.example.routers.ingredientRouter
 import initDB
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -13,9 +14,7 @@ fun main() {
 }
 
 fun Application.module() {
-  configureSerialization()
-  configureDatabases()
   configureHTTP()
   configureSecurity()
-  configureRouting()
+  ingredientRouter()
 }

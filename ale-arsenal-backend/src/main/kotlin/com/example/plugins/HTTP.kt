@@ -1,7 +1,9 @@
 package com.example.plugins
 
 import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
 
 fun Application.configureHTTP() {
@@ -13,5 +15,8 @@ fun Application.configureHTTP() {
         allowHeader(HttpHeaders.Authorization)
         allowHeader("MyCustomHeader")
         anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
+    }
+    install(ContentNegotiation) {
+        json()
     }
 }
