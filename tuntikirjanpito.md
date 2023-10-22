@@ -7,4 +7,5 @@
 | 5.10.2023  | 2h    | Datan suunnittelu                                                          |
 | 5.10.2023  | 2h    | Tietokantamallin toteutus Flyway:lla.                                      |
 | 15.10.2023 | 3h    | Backend luurangon toteuttamista ja ensimmäiset endpointit                  |
-|  Yhteensä  | 11h   |                                                                            |
+| 15.10.2023 | 2.5h  | Eslintin, prettierin ja Detektin konfigurointi                             |
+|  Yhteensä  | 13.5h   |                                                                            |
