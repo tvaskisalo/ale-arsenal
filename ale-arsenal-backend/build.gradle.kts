@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
@@ -12,6 +14,10 @@ plugins {
     id("io.ktor.plugin") version "2.3.4"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
     id("io.gitlab.arturbosch.detekt") version("1.23.1")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_19
 }
 
 group = "com.example"
@@ -48,4 +54,16 @@ dependencies {
     implementation("org.flywaydb:flyway-core:$flyway_version")
 
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+}
+
+tasks.withType<Test> {
+    environment("DB_URI", "localhost:5432/")
+    environment("DB_PASSWORD", "password")
+    environment("DB_USER", "username")
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "19"
+    }
 }
