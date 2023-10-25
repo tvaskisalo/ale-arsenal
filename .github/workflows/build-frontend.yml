@@ -1,0 +1,29 @@
+name: Build Frontend
+
+on:
+  push:
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ale-arsenal-frontend
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.8.0
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+      - name: Run prettier
+        run: npm run prettier
+      - name: Run tests
+        run: npm run test
+      - name: Run build
+        run: npm run build
