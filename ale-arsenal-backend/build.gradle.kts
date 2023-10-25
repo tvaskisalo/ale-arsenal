@@ -19,10 +19,9 @@ plugins {
 java {
     sourceCompatibility = JavaVersion.VERSION_19
     targetCompatibility = JavaVersion.VERSION_19
-}
-
-kotlin {
-    jvmToolchain(19)
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(19))
+    }
 }
 
 group = "com.example"
