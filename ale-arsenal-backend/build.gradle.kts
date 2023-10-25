@@ -18,6 +18,11 @@ plugins {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_19
+    targetCompatibility = JavaVersion.VERSION_19
+}
+
+kotlin {
+    jvmToolchain(19)
 }
 
 group = "com.example"
@@ -66,4 +71,9 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "19"
     }
+}
+
+detekt {
+    autoCorrect = true
+    source.setFrom("src/main/kotlin", "src/test/kotlin")
 }

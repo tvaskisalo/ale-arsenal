@@ -1,17 +1,18 @@
 package com.example
 
-import com.example.dto.IngredientDto
 import com.example.dto.NewIngredientCommand
 import com.example.plugins.configureHTTP
 import com.example.plugins.configureSecurity
 import com.example.routers.ingredientRouter
 import initDB
-import io.ktor.client.call.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.testing.*
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.contentType
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -31,11 +32,13 @@ class IngredientRouterTest {
         initDB()
         val res = client.post("/api/ingredient") {
             contentType(ContentType.Application.Json)
-            setBody(NewIngredientCommand(
-                "barley malt",
-                1.0,
-                "malt"
-            ))
+            setBody(
+                NewIngredientCommand(
+                    "barley malt",
+                    1.0,
+                    "malt"
+                )
+            )
         }
         assertEquals(HttpStatusCode.Created, res.status)
     }
