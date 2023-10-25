@@ -23,3 +23,5 @@ jobs:
         run: docker compose up --build db -d
       - name: Run build
         run: ./gradlew build
+      - name: Teardown docker
+        run: docker compose down -v
