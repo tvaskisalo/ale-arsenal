@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./ale-arsenal-frontend
+        working-directory: "./ale-arsenal-frontend"
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
