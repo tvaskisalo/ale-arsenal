@@ -8,15 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./ale-arsenal-frontend"
+        working-directory: 'ale-arsenal-frontend'
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20.8.0
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
       - name: Install dependencies
         run: npm ci
       - name: Run lint

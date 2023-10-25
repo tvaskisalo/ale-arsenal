@@ -66,12 +66,6 @@ tasks.withType<Test> {
     environment("DB_USER", "username")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "19"
-    }
-}
-
 detekt {
     autoCorrect = true
     source.setFrom("src/main/kotlin", "src/test/kotlin")
