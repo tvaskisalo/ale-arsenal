@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
@@ -27,6 +26,7 @@ module.exports = {
     'no-unreachable-loop': 'error',
     'no-unused-expressions': 'off',
     'no-useless-return': 'error',
+    'react/react-in-jsx-scope': 'off',
     'no-use-before-define': 'off',
     'no-var': 'error',
     'simple-import-sort/imports': 'error',
@@ -35,7 +35,7 @@ module.exports = {
 
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': [
-      'error', 
+      'error',
       {
         default: 'array',
       }
