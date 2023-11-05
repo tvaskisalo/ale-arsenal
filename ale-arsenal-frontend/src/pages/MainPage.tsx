@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { DefaultApiFactory } from '../generated'
 
 function MainPage() {
@@ -8,6 +9,7 @@ function MainPage() {
 	const pingBackend = async (e: React.MouseEvent) => {
 		e.preventDefault()
 		const ingredients = await api.apiIngredientGet()
+		// eslint-disable-next-line no-console
 		console.log(ingredients)
 	}
 	return (
@@ -19,7 +21,7 @@ function MainPage() {
 				</button>
 			</div>
 			<button onClick={pingBackend}>PING</button>
-			<div>"CHECK LOGS"</div>
+			<div>CHECK LOGS</div>
 		</>
 	)
 }
