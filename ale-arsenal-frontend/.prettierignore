@@ -3,6 +3,7 @@
 *.json
 README.md
 vite.config.json
+/src/generated
 
 build
 coverage

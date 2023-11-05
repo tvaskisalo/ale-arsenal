@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
+import { DefaultApiFactory } from '../generated'
 
 function MainPage() {
 	const [count, setCount] = useState(0)
-	const [msg, setMsg] = useState('')
+
+	const api = DefaultApiFactory(undefined, 'http://0.0.0.0:8080')
 	const pingBackend = async (e: React.MouseEvent) => {
 		e.preventDefault()
-		const message = await fetch('http://0.0.0.0:8080/')
-		const text = await message.text()
-		setMsg(text)
+		const ingredients = await api.apiIngredientGet()
+		console.log(ingredients)
 	}
 	return (
 		<>
@@ -18,7 +19,7 @@ function MainPage() {
 				</button>
 			</div>
 			<button onClick={pingBackend}>PING</button>
-			<div>{msg}</div>
+			<div>"CHECK LOGS"</div>
 		</>
 	)
 }

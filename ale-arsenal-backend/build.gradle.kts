@@ -12,6 +12,7 @@ plugins {
     id("io.ktor.plugin") version "2.3.4"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
     id("io.gitlab.arturbosch.detekt") version("1.23.1")
+    id("org.openapi.generator") version ("6.6.0")
 }
 
 java {
@@ -27,7 +28,6 @@ version = "0.0.1"
 
 application {
     mainClass.set("com.example.ApplicationKt")
-
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
@@ -40,6 +40,8 @@ dependencies {
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
+    implementation("io.ktor:ktor-server-openapi:$ktor_version")
+    implementation("io.ktor:ktor-server-swagger:$ktor_version")
     implementation("org.postgresql:postgresql:$postgres_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("io.ktor:ktor-server-cors-jvm")
@@ -54,6 +56,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.flywaydb:flyway-core:$flyway_version")
+    implementation("org.openapitools:openapi-generator-gradle-plugin:7.0.1")
 
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
 }
@@ -67,4 +70,17 @@ tasks.withType<Test> {
 detekt {
     autoCorrect = true
     source.setFrom("src/main/kotlin", "src/test/kotlin")
+}
+
+openApiGenerate {
+    generatorName.set("typescript-axios")
+    inputSpec.set("./src/main/resources/openapi/documentation.yaml")
+    outputDir.set("$buildDir/generated")
+    configOptions.put("withInterfaces", "true")
+    configOptions.put("supportsES6", "true")
+    logToStderr = true
+}
+
+openApiValidate {
+    inputSpec.set("./src/main/resources/openapi/documentation.yaml")
 }

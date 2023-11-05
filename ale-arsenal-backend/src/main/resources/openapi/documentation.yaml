@@ -1,0 +1,67 @@
+openapi: "3.0.3"
+info:
+  title: "ale_arsenal API"
+  description: "ale_arsenal API"
+  version: "1.0.0"
+servers:
+- url: "https://ale_arsenal"
+paths:
+  /api/ingredient:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/IngredientDto"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+    post:
+      description: ""
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/NewIngredientCommand"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+components:
+  schemas:
+    IngredientDto:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        name:
+          type: "string"
+        amount:
+          type: "number"
+          format: "double"
+        ingredientType:
+          type: "string"
+    NewIngredientCommand:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        amount:
+          type: "number"
+          format: "double"
+        ingredientType:
+          type: "string"
