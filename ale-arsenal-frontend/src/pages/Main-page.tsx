@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 
-import { DefaultApiFactory } from '../generated'
+import { api } from '../main.tsx'
 
 function MainPage() {
 	const [count, setCount] = useState(0)
 
-	const api = DefaultApiFactory(undefined, 'http://0.0.0.0:8080')
 	const pingBackend = async (e: React.MouseEvent) => {
 		e.preventDefault()
 		const ingredients = await api.apiIngredientGet()
@@ -14,7 +13,9 @@ function MainPage() {
 	}
 	return (
 		<>
-			<h1>Vite + React</h1>
+			<h1 className="text-3xl font-bold underline text-red-600">
+				Vite + React
+			</h1>
 			<div className="card">
 				<button onClick={() => setCount((count) => count + 1)}>
 					count is {count}
