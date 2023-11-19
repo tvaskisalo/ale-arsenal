@@ -11,4 +11,5 @@
 | 25.10.2023 | 2h   | React routerin ja vitestin konfigurointi                                            |
 | 26.10.2023 | 1.5h | Ensimmäisten CI putkien konfigurointi                                               |
 | 5.11.2023  | 3h   | Swaggerui, openapi putken lisääminen; BE openapi dokumentti ja FE client generation |
-|  Yhteensä  | 20h  |
+| 19.11.2023 | 3h   | Tailwindin, zoding, react-hook-formin ja react routerin congifurointi               |
+|  Yhteensä  | 23h  |                                                                                     |
