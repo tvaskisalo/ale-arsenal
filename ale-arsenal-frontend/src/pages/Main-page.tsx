@@ -12,7 +12,7 @@ function MainPage() {
 		console.log(ingredients)
 	}
 	return (
-		<>
+		<div className={'flex flex-col justify-center'}>
 			<h1 className="text-3xl font-bold underline text-red-600">
 				Vite + React
 			</h1>
@@ -23,7 +23,7 @@ function MainPage() {
 			</div>
 			<button onClick={pingBackend}>PING</button>
 			<div>CHECK LOGS</div>
-		</>
+		</div>
 	)
 }
 

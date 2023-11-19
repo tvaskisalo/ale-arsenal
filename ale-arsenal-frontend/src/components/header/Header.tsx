@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom'
 
+import Navigation from '../navigation/Navigation.tsx'
+
 const Header = () => (
-	<div>
-		<div>dab</div>
+	<div className={'flex flex-row justify-center w-1/2'}>
+		<Navigation />
 		<Outlet />
 	</div>
 )
