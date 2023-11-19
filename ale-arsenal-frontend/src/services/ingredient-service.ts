@@ -1,5 +1,5 @@
-import { api } from '../main.tsx'
 import { addIngredientCommand } from '../types/ingredientTypes.ts'
+import { api } from './api.tsx'
 
 export const addIngredient = async (ingredient: addIngredientCommand) => {
 	return await api.apiIngredientPost({
