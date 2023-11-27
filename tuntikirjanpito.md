@@ -13,4 +13,5 @@
 | 5.11.2023  | 3h   | Swaggerui, openapi putken lisääminen; BE openapi dokumentti ja FE client generation |
 | 19.11.2023 | 3h   | Tailwindin, zoding, react-hook-formin ja react routerin congifurointi               |
 | 20.11.2023 | 1h   | Alustavaa tyylitteylyä ja bugi-fixei                                                |
-|  Yhteensä  | 24h  |                                                                                     |
+| 28.11.2023 | 2h   | Lisää tyylittelyä ja UI:n rakentamista                                              |
+|  Yhteensä  | 26h  |                                                                                     |
