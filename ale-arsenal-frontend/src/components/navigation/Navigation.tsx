@@ -1,33 +1,55 @@
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+
 import { Paths } from '../../paths.ts'
 
 interface LinkProps {
-	link: string
+	path: string
 	name: string
+	navigate: NavigateFunction
 }
 
-const NavigationLink = (linkProps: LinkProps) => {
+const NavigationLink = ({ path, name, navigate }: LinkProps) => {
 	return (
 		<a
 			className={
-				'outline py-2 px-5 outline-red-400 text-white rounded m-2 focus:outline-green-500 hover:outline-blue-600'
+				'outline py-2 w-full px-5 outline-red-400 text-white rounded m-2 focus-visible:outline-green-500 hover:outline-blue-600 active:outline-white'
 			}
-			href={linkProps.link}
+			onClick={(e: React.SyntheticEvent) => {
+				e.preventDefault()
+				navigate(path)
+			}}
+			href={path}
+			role="link"
 		>
-			{linkProps.name}
+			{name}
 		</a>
 	)
 }
 
 const Navigation = () => {
+	const navigate = useNavigate()
+	const links = [
+		{ path: Paths.ROOT, name: 'Go to main page' },
+		{ path: Paths.INGREDIENT_FORM, name: 'Add ingredient' },
+	]
 	return (
-		<div
+		<ul
 			className={
-				'inline-flex max-w-md flex-col bg-black mr-10 min-h-screen py-3 pr-6'
+				'inline-flex list-inside w-[12%] max-w-md flex-col bg-black mr-10 min-h-screen py-6 pr-6'
 			}
 		>
-			<NavigationLink link={Paths.ROOT} name={'Root'} />
-			<NavigationLink link={Paths.INGREDIENT_FORM} name={'Add ingredient'} />
-		</div>
+			{links.map((link) => {
+				return (
+					<li className={'w-[12rem] inline-flex'} key={link.path}>
+						<NavigationLink
+							path={link.path}
+							name={link.name}
+							navigate={navigate}
+						/>
+					</li>
+				)
+			})}
+		</ul>
 	)
 }
 

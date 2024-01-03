@@ -14,4 +14,6 @@
 | 19.11.2023 | 3h   | Tailwindin, zoding, react-hook-formin ja react routerin congifurointi               |
 | 20.11.2023 | 1h   | Alustavaa tyylitteylyä ja bugi-fixei                                                |
 | 28.11.2023 | 2h   | Lisää tyylittelyä ja UI:n rakentamista                                              |
-|  Yhteensä  | 26h  |                                                                                     |
+|  3.1.2023  | 2h   | Navigaation parantelemista ja saavutattavuus parannuksia                            |
+|  Yhteensä  | 28h  |                                                                                     |
+
