@@ -1,2 +1,0 @@
-ALTER TYPE INGREDIENT_AMOUNT RENAME ATTRIBUTE count to amount;
-ALTER TABLE ingredients RENAME COLUMN count to amount;

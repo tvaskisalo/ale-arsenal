@@ -11,7 +11,7 @@ plugins {
     kotlin("jvm") version "1.9.10"
     id("io.ktor.plugin") version "2.3.4"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
-    id("io.gitlab.arturbosch.detekt") version("1.23.1")
+    id("io.gitlab.arturbosch.detekt") version ("1.23.1")
     id("org.openapi.generator") version ("6.6.0")
 }
 
@@ -56,6 +56,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.flywaydb:flyway-core:$flyway_version")
+    implementation("org.flywaydb:flyway-database-postgresql:$flyway_version")
     implementation("org.openapitools:openapi-generator-gradle-plugin:7.0.1")
 
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
