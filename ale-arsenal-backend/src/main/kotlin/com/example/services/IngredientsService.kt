@@ -9,6 +9,7 @@ import com.example.errors.IngredientValidationError
 import com.example.models.Ingredients
 import org.jetbrains.exposed.exceptions.ExposedSQLException
 
+@Suppress("SwallowedException")
 suspend fun addIngredientService(newIngredient: NewIngredientCommand): NewIngredientDto {
     try {
         val addedIngredientId = addIngredient(newIngredient)
