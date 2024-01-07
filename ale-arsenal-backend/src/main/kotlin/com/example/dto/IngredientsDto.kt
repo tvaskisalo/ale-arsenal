@@ -16,3 +16,8 @@ data class NewIngredientCommand(
     val amount: Double,
     val ingredientType: String
 )
+
+@Serializable
+data class NewIngredientDto(
+    val id: Int
+)

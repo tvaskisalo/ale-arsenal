@@ -1,8 +1,8 @@
 package com.example.dao
 
-import com.example.dto.IngredientDto
 import com.example.dto.NewIngredientCommand
 import com.example.models.Ingredients
+import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.experimental.suspendedTransactionAsync
@@ -21,17 +21,9 @@ suspend fun addIngredient(newIngredient: NewIngredientCommand): Int {
     return addedIngredient.value
 }
 
-suspend fun getIngredients(): List<IngredientDto> {
+suspend fun getAllIngredients(): List<ResultRow> {
     val ingredients = suspendedTransactionAsync {
         Ingredients.selectAll().toList()
     }.await()
-
-    return ingredients.map {
-        IngredientDto(
-            it[Ingredients.sequelId],
-            it[Ingredients.name],
-            it[Ingredients.amount],
-            it[Ingredients.ingredientType]
-        )
-    }
+    return ingredients
 }
