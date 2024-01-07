@@ -40,7 +40,7 @@ export interface IngredientDto {
      * @type {string}
      * @memberof IngredientDto
      */
-    'name'?: string;
+    'name': string;
     /**
      * 
      * @type {number}
@@ -52,7 +52,7 @@ export interface IngredientDto {
      * @type {string}
      * @memberof IngredientDto
      */
-    'ingredientType'?: string;
+    'ingredientType': string;
 }
 /**
  * 
@@ -65,7 +65,7 @@ export interface NewIngredientCommand {
      * @type {string}
      * @memberof NewIngredientCommand
      */
-    'name'?: string;
+    'name': string;
     /**
      * 
      * @type {number}
@@ -77,7 +77,94 @@ export interface NewIngredientCommand {
      * @type {string}
      * @memberof NewIngredientCommand
      */
-    'ingredientType'?: string;
+    'ingredientType': string;
+}
+/**
+ * 
+ * @export
+ * @interface NewIngredientDto
+ */
+export interface NewIngredientDto {
+    /**
+     * 
+     * @type {number}
+     * @memberof NewIngredientDto
+     */
+    'id'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface NewOwnBeerCommand
+ */
+export interface NewOwnBeerCommand {
+    /**
+     * 
+     * @type {string}
+     * @memberof NewOwnBeerCommand
+     */
+    'name': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerCommand
+     */
+    'bottleSize'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerCommand
+     */
+    'kegSize'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerCommand
+     */
+    'bottleAmount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerCommand
+     */
+    'kegAmount'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerCommand
+     */
+    'abv'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof NewOwnBeerCommand
+     */
+    'style': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NewOwnBeerCommand
+     */
+    'brewDate': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NewOwnBeerCommand
+     */
+    'description': string;
+}
+/**
+ * 
+ * @export
+ * @interface NewOwnBeerDto
+ */
+export interface NewOwnBeerDto {
+    /**
+     * 
+     * @type {number}
+     * @memberof NewOwnBeerDto
+     */
+    'id'?: number;
 }
 
 /**
@@ -150,6 +237,41 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {NewOwnBeerCommand} newOwnBeerCommand 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiOwnBeerPost: async (newOwnBeerCommand: NewOwnBeerCommand, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'newOwnBeerCommand' is not null or undefined
+            assertParamExists('apiOwnBeerPost', 'newOwnBeerCommand', newOwnBeerCommand)
+            const localVarPath = `/api/ownBeer`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(newOwnBeerCommand, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -175,8 +297,18 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+        async apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NewIngredientDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.apiIngredientPost(newIngredientCommand, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {NewOwnBeerCommand} newOwnBeerCommand 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiOwnBeerPost(newOwnBeerCommand: NewOwnBeerCommand, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NewOwnBeerDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.apiOwnBeerPost(newOwnBeerCommand, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -203,8 +335,17 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: any): AxiosPromise<number> {
+        apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: any): AxiosPromise<NewIngredientDto> {
             return localVarFp.apiIngredientPost(newIngredientCommand, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {NewOwnBeerCommand} newOwnBeerCommand 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiOwnBeerPost(newOwnBeerCommand: NewOwnBeerCommand, options?: any): AxiosPromise<NewOwnBeerDto> {
+            return localVarFp.apiOwnBeerPost(newOwnBeerCommand, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -230,7 +371,16 @@ export interface DefaultApiInterface {
      * @throws {RequiredError}
      * @memberof DefaultApiInterface
      */
-    apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: AxiosRequestConfig): AxiosPromise<number>;
+    apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: AxiosRequestConfig): AxiosPromise<NewIngredientDto>;
+
+    /**
+     * 
+     * @param {NewOwnBeerCommand} newOwnBeerCommand 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApiInterface
+     */
+    apiOwnBeerPost(newOwnBeerCommand: NewOwnBeerCommand, options?: AxiosRequestConfig): AxiosPromise<NewOwnBeerDto>;
 
 }
 
@@ -260,6 +410,17 @@ export class DefaultApi extends BaseAPI implements DefaultApiInterface {
      */
     public apiIngredientPost(newIngredientCommand: NewIngredientCommand, options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).apiIngredientPost(newIngredientCommand, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {NewOwnBeerCommand} newOwnBeerCommand 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public apiOwnBeerPost(newOwnBeerCommand: NewOwnBeerCommand, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).apiOwnBeerPost(newOwnBeerCommand, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
