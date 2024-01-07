@@ -4,7 +4,7 @@ CREATE TYPE INGREDIENT_AMOUNT AS
     amount        FLOAT
 );
 
-CREATE TABLE beer_recipes
+CREATE TABLE beerRecipes
 (
     id                        SERIAL PRIMARY KEY,
     sequel_id                 INT NOT NULL,

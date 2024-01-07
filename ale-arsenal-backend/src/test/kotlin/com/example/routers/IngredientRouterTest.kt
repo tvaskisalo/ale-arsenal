@@ -1,10 +1,10 @@
-package com.example
+package com.example.routers
 
 import com.example.dto.NewIngredientCommand
+import com.example.initDB
 import com.example.plugins.configureHTTP
 import com.example.plugins.configureSecurity
-import com.example.routers.ingredientRouter
-import initDB
+import com.example.resetDB
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
@@ -30,6 +30,7 @@ class IngredientRouterTest {
             }
         }
         initDB()
+        resetDB()
         val res = client.post("/api/ingredient") {
             contentType(ContentType.Application.Json)
             setBody(

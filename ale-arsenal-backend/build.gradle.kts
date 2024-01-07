@@ -60,6 +60,7 @@ dependencies {
     implementation("org.openapitools:openapi-generator-gradle-plugin:7.0.1")
 
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:2.3.6")
 }
 
 tasks.withType<Test> {

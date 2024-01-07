@@ -1,4 +1,4 @@
-CREATE TABLE other_beers
+CREATE TABLE otherBeers
 (
     id          SERIAL PRIMARY KEY,
     sequel_id   INT     NOT NULL,

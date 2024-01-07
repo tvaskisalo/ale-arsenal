@@ -4,7 +4,6 @@ import com.example.plugins.configureHTTP
 import com.example.plugins.configureSecurity
 import com.example.routers.ingredientRouter
 import com.example.routers.openApiRouter
-import initDB
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
