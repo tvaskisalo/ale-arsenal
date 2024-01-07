@@ -14,7 +14,9 @@
 | 19.11.2023 | 3h    | Tailwindin, zoding, react-hook-formin ja react routerin congifurointi               |
 | 20.11.2023 | 1h    | Alustavaa tyylitteylyä ja bugi-fixei                                                |
 | 28.11.2023 | 2h    | Lisää tyylittelyä ja UI:n rakentamista                                              |
-|  3.1.2023  | 2h    | Navigaation parantelemista ja saavutattavuus parannuksia                            |
-|  6.1.2023  | 1.5 h | Flyway päivitys, migraatioiden yksinkertaistaminen, dokumentaation toteuttamista    |
-|  Yhteensä  | 29.5h |                                                                                     |
+|  3.1.2024  | 2h    | Navigaation parantelemista ja saavutattavuus parannuksia                            |
+|  6.1.2024  | 1.5 h | Flyway päivitys, migraatioiden yksinkertaistaminen, dokumentaation toteuttamista    |
+|  7.1.2024  | 1 h   | Backendin refactorointia                                                            |
+|  7.1.2024  | 2h    | Omien oluiden rajapinnan toteutus                                                   |
+|  Yhteensä  | 32.5h |                                                                                     |
 
