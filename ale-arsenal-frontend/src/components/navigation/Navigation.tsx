@@ -1,6 +1,6 @@
-import {NavigateFunction, useNavigate} from 'react-router-dom'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 
-import {Paths} from '../../paths.ts'
+import { Paths } from '../../paths.ts'
 
 interface LinkProps {
 	path: string

@@ -7,7 +7,7 @@ import {
 import Header from './components/header/Header.tsx'
 import IngredientForm from './pages/ingredient-form/Ingredient-form.tsx'
 import MainPage from './pages/main-page/Main-page.tsx'
-import OwnBeerForm from "./pages/own-beer-form/Own-beer-form.tsx";
+import OwnBeerForm from './pages/own-beer-form/Own-beer-form.tsx'
 import { Paths } from './paths'
 
 export const routes = createBrowserRouter(
