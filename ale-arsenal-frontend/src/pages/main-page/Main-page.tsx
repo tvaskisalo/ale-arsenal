@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { api } from '../services/api.tsx'
+import { api } from '../../services/api.tsx'
 
 function MainPage() {
 	const [count, setCount] = useState(0)

@@ -1,6 +1,6 @@
-import { NavigateFunction, useNavigate } from 'react-router-dom'
+import {NavigateFunction, useNavigate} from 'react-router-dom'
 
-import { Paths } from '../../paths.ts'
+import {Paths} from '../../paths.ts'
 
 interface LinkProps {
 	path: string
@@ -31,11 +31,12 @@ const Navigation = () => {
 	const links = [
 		{ path: Paths.ROOT, name: 'Go to main page' },
 		{ path: Paths.INGREDIENT_FORM, name: 'Add ingredient' },
+		{ path: Paths.OWN_BEER_FORM, name: 'Add own beer' },
 	]
 	return (
 		<ul
 			className={
-				'inline-flex list-inside w-[12%] max-w-md flex-col bg-black mr-10 min-h-screen py-6 pr-6'
+				'inline-flex list-inside min-w-52 max-w-md flex-col bg-black mr-10 min-h-screen py-6 pr-6'
 			}
 		>
 			{links.map((link) => {

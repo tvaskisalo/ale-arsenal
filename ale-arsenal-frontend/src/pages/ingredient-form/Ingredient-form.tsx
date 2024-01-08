@@ -1,10 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import TextInput from '../../components/text-input/Text-input.tsx'
 import { addIngredientSchema } from '../../schemas/ingredient-schemas.ts'
 import { addIngredient } from '../../services/ingredient-service.ts'
-import { addIngredientCommand } from '../../types/ingredientTypes.ts'
-import TextInput from '../text-input/Text-input.tsx'
+import { addIngredientCommand } from '../../types/ingredient-types.ts'
 
 const IngredientForm = () => {
 	const { register, handleSubmit } = useForm<addIngredientCommand>({

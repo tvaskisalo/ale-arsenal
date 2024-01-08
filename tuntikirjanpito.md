@@ -18,5 +18,5 @@
 |  6.1.2024  | 1.5 h | Flyway päivitys, migraatioiden yksinkertaistaminen, dokumentaation toteuttamista    |
 |  7.1.2024  | 1 h   | Backendin refactorointia                                                            |
 |  7.1.2024  | 2h    | Omien oluiden rajapinnan toteutus                                                   |
-|  Yhteensä  | 32.5h |                                                                                     |
-
+|  8.1.2024  | 1.5 h | Omien oluiden lomakkeen alustava toteuttaminen                                      |
+|  Yhteensä  | 34h   |                                                                                     |
