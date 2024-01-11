@@ -20,7 +20,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Start db container
-        run: docker compose up --build db -d
+        run: docker compose up --build test-db -d
       - name: Run build
         run: ./gradlew build
       - name: Teardown docker
