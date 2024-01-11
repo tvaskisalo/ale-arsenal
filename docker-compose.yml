@@ -9,3 +9,11 @@ services:
       POSTGRES_USER: 'username'
     ports:
       - "5432:5432"
+  test-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_USER: 'username'
+    ports:
+      - "5433:5432"

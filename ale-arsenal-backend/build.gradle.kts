@@ -52,6 +52,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:2.3.6")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
@@ -64,9 +66,10 @@ dependencies {
 }
 
 tasks.withType<Test> {
-    environment("DB_URI", "localhost:5432/")
+    environment("DB_URI", "localhost:5433/")
     environment("DB_PASSWORD", "password")
     environment("DB_USER", "username")
+    useJUnitPlatform()
 }
 
 detekt {

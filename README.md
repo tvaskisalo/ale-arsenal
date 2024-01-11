@@ -2,13 +2,19 @@
 
 ## DB
 
-### Start
+### Start dev db
 
 ```bash
 docker compose up db -d
 ```
 
-### Reset
+### Start testing db
+
+```bash
+docker compose up test-db -d
+```
+
+### Reset dev db
 
 These are run especially when migration changes occur
 
@@ -16,7 +22,14 @@ These are run especially when migration changes occur
 docker compose kill db
 docker compose rm db -f
 docker compose up db -d
+```
 
+### Reset testing db
+
+```bash
+docker compose kill test-db
+docker compose rm test-db -f
+docker compose up test-db -d
 ```
 
 ## Frontend
@@ -35,9 +48,23 @@ cd ./ale-arsenal-frontend
 npm run dev
 ```
 
-## Run backend
+### Test
+```bash
+cd ./ale-arsenal-frontend
+npm run test
+```
+
+## Backend
+
+### Run
 
 ```bash
 cd ./ale-arsenal-backend
 DB_URI=localhost:5432/ DB_USER=username DB_PASSWORD=password ./gradlew run
+```
+
+## Run backend tests
+```bash
+cd ./ale-arsenal-backend
+./gradlew :test
 ```
