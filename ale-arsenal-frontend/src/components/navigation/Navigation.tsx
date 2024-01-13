@@ -20,6 +20,7 @@ const NavigationLink = ({ path, name, navigate }: LinkProps) => {
 			}}
 			href={path}
 			role="link"
+			data-testid={`${name}-link`}
 		>
 			{name}
 		</a>
@@ -32,6 +33,7 @@ const Navigation = () => {
 		{ path: Paths.ROOT, name: 'Go to main page' },
 		{ path: Paths.INGREDIENT_FORM, name: 'Add ingredient' },
 		{ path: Paths.OWN_BEER_FORM, name: 'Add own beer' },
+		{ path: Paths.VIEW_INGREDIENTS, name: 'View all ingredients' },
 	]
 	return (
 		<ul

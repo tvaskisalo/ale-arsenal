@@ -20,4 +20,5 @@
 |  7.1.2024  | 2h    | Omien oluiden rajapinnan toteutus                                                   |
 |  8.1.2024  | 1.5 h | Omien oluiden lomakkeen alustava toteuttaminen                                      |
 | 12.1.2024  | 2 h   | JUnit konfigurointi, backendin routereiden testaamisen parantamista                 |
-|  Yhteensä  | 36h   |                                                                                     |
+| 13.1.2024  | 1.5h  | Lomakkeiden refaktoroinita. Alustava lista-komponentin rakentamista                 |
+|  Yhteensä  | 37.5h |                                                                                     |
