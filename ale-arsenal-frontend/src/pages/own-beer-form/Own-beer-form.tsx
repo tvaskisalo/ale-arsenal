@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import Form, { FormType } from '../../components/form/Form.tsx'
 import TextInput from '../../components/text-input/Text-input.tsx'
 import { addOwnBeerSchema } from '../../schemas/own-beer-schemas.ts'
 import { addOwnBeer } from '../../services/own-beer-service.ts'
@@ -16,7 +17,7 @@ const OwnBeerForm = () => {
 		console.log(id)
 	}
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className={'w-1/12'}>
+		<Form onSubmit={handleSubmit(onSubmit)} formType={FormType.OWN_BEER}>
 			<TextInput register={register} label={'Name'} field={'name'} />
 			<TextInput
 				register={register}
@@ -49,8 +50,7 @@ const OwnBeerForm = () => {
 				label={'Description'}
 				field={'description'}
 			/>
-			<input type="submit" />
-		</form>
+		</Form>
 	)
 }
 
