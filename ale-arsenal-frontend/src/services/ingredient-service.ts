@@ -10,7 +10,6 @@ export const addIngredient = async (ingredient: addIngredientCommand) => {
 
 export const getIngredients = async (): Promise<Ingredient[]> => {
 	const ingredients = await api.apiIngredientGet()
-	console.log(ingredients)
 	return ingredients.data.map((ingredient) =>
 		ingredientSchema.parse(ingredient),
 	)
