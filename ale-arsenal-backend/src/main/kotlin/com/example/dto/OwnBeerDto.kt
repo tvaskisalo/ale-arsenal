@@ -15,3 +15,26 @@ data class NewOwnBeerCommand(
 
 @Serializable
 data class NewOwnBeerDto(val id: Int)
+
+@Serializable
+data class OwnBeerListItemDto(
+    val id: Int,
+    val name: String,
+    val abv: Double?,
+    val style: String,
+    val brewDate: String,
+)
+
+@Serializable
+data class OwnBeerDetailsDto(
+    val id: Int,
+    val name: String,
+    val bottleSize: Double?,
+    val kegSize: Double?,
+    val bottleAmount: Int,
+    val kegAmount: Int,
+    val abv: Double?,
+    val style: String,
+    val brewDate: String,
+    val description: String,
+)

@@ -6,6 +6,7 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.experimental.suspendedTransactionAsync
 import kotlin.random.Random
 
@@ -32,4 +33,11 @@ suspend fun getOwnBeerById(id: Int): ResultRow {
         OwnBeers.select(OwnBeers.sequelId eq id).single()
     }.await()
     return ownBeer
+}
+
+suspend fun getAllOwnBeers(): List<ResultRow> {
+    val ownBeers = suspendedTransactionAsync {
+        OwnBeers.selectAll().toList()
+    }.await()
+    return ownBeers
 }

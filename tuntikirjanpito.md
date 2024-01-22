@@ -22,4 +22,5 @@
 | 12.1.2024  | 2 h   | JUnit konfigurointi, backendin routereiden testaamisen parantamista                 |
 | 13.1.2024  | 1.5h  | Lomakkeiden refaktoroinita. Alustava lista-komponentin rakentamista                 |
 | 18.1.2024  | 2h    | Alustava taulukko komponentti.                                                      |
-|  Yhteensä  | 39.5h |                                                                                     |
+| 22.1.2024  | 1h    | Omien oluiden routereiden laajentamista.                                            |
+|  Yhteensä  | 40.5h |                                                                                     |
