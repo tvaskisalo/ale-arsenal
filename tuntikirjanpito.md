@@ -23,4 +23,6 @@
 | 13.1.2024  | 1.5h  | Lomakkeiden refaktoroinita. Alustava lista-komponentin rakentamista                 |
 | 18.1.2024  | 2h    | Alustava taulukko komponentti.                                                      |
 | 22.1.2024  | 1h    | Omien oluiden routereiden laajentamista.                                            |
-|  Yhteensä  | 40.5h |                                                                                     |
+|  2.4.2024  | 2h    | Ensimmäisen dialogi-komponentin toteuttaminen                                       |
+|  2.4.2024  | 2h    | Lomakegeneraattorin suunnittelua ja alustavaa toteuttamista                         |
+|  Yhteensä  | 44.5h |                                                                                     |
