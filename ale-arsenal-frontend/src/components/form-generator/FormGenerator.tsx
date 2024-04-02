@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { z, ZodRawShape, ZodTypeAny } from 'zod'
+import { z, ZodNumber, ZodOptional, ZodRawShape, ZodString, ZodTypeAny } from 'zod'
 
 interface FormGeneratorProps {
 	schema: z.ZodObject<ZodRawShape>
@@ -13,14 +13,21 @@ interface FieldData {
 }
 
 const parseField = (name: string, field: ZodTypeAny): FieldData => {
+	console.log('Field type')
+	console.log(field instanceof ZodString)
+	let type = ''
+	if (field instanceof ZodString) {
+		type = 'string'
+	} else if (field instanceof ZodOptional) {
+		if (field._def.innerType instanceof ZodNumber) {
+			type = 'number'
+		}
+	}
 	return {
 		name: name,
 		isOptional: field.isOptional(),
 		isNullable: field.isNullable(),
-		type:
-			field._def.innerType === undefined
-				? field._def.typeName
-				: field._def.innerType._def.typeName,
+		type: type,
 	}
 }
 

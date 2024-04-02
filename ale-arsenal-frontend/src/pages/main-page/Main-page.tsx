@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react'
 
 import { api } from '../../services/api.tsx'
@@ -5,11 +6,12 @@ import { api } from '../../services/api.tsx'
 function MainPage() {
 	const [count, setCount] = useState(0)
 
-	const pingBackend = async (e: React.MouseEvent) => {
+	const pingBackend = (e: React.MouseEvent) => {
 		e.preventDefault()
-		const ingredients = await api.apiIngredientGet()
-		// eslint-disable-next-line no-console
-		console.log(ingredients)
+		api
+			.apiIngredientGet()
+			.then((data) => console.log(data))
+			.catch((err) => console.error(err))
 	}
 	return (
 		<div className={'flex flex-col'}>

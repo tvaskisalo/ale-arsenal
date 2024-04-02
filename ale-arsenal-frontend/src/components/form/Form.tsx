@@ -12,7 +12,7 @@ interface FormProps {
 }
 const Form = ({ children, formType, onSubmit }: FormProps) => {
 	return (
-		<form onSubmit={onSubmit} className={'w-4/12 p-10'}>
+		<form onSubmit={(event) => { void onSubmit(event) }} className={'w-4/12 p-10'}>
 			{children}
 			<button
 				type="submit"
