@@ -25,4 +25,5 @@
 | 22.1.2024  | 1h    | Omien oluiden routereiden laajentamista.                                            |
 |  2.4.2024  | 2h    | Ensimmäisen dialogi-komponentin toteuttaminen                                       |
 |  2.4.2024  | 2h    | Lomakegeneraattorin suunnittelua ja alustavaa toteuttamista                         |
-|  Yhteensä  | 44.5h |                                                                                     |
+|  3.4.2024  | 2h    | Lomakegeneraattorin jatkamista                                                      |
+|  Yhteensä  | 46.5h |                                                                                     |
